@@ -1,0 +1,2 @@
+install pillow : pip3 install pillow
+install django : pip3 install django
