@@ -1,20 +1,18 @@
-
-console.log('hello world')
 const spinner = document.getElementById('spinner')
 const tableBody = document.getElementById('table-body-box')
 const modalBody = document.getElementById('modal-body')
 const url = window.location.href
-console.log(url)
+//console.log(url)
 
 $.ajax({
     type: "GET",
     url : '/data-json',
     success:function(response){
-        console.log(response)
+        //console.log(response)
         const data = JSON.parse(response.data)
         console.log(data)
         data.forEach(el=>{
-            console.log(el.fields)
+            //console.log(el.fields)
             tableBody.innerHTML += `
                 <tr>
                     <td>${el.pk}</td>
@@ -26,10 +24,10 @@ $.ajax({
         spinner.classList.add('not-visible')
 
         const imgPhoto = [...document.getElementsByClassName('img-photo')]
-        console.log(imgPhoto)
+        //console.log(imgPhoto)
         imgPhoto.forEach(item=>item.addEventListener('click', e=>{
             const pic = e.target.parentElement.getAttribute('data-pic')
-            console.log(pic)
+            //console.log(pic)
             modalBody.innerHTML = `
             <img src='${pic}' width='100%'>
             `
@@ -37,6 +35,5 @@ $.ajax({
     },
     error:function(error){
         console.log(error)
-    
     }
 })
